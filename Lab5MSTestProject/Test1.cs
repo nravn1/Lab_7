@@ -250,7 +250,8 @@ namespace Lab5MSTestProject
             var users = (List<Blazor_Lab_Starter_Code.User>)usersField.GetValue(null);
 
             Dictionary<Blazor_Lab_Starter_Code.User, List<Book>> borrowedBooks = new Dictionary<Blazor_Lab_Starter_Code.User, List<Book>>();
-            //var borrowedBooksField = typeof(Program).GetField("borrowedBooks", BindingFlags.Static | BindingFlags.NonPublic);
+            
+            var borrowedBooksField = typeof(Program).GetField("borrowedBooks", BindingFlags.Static | BindingFlags.NonPublic);
             //var borrowedBooks = (Dictionary<Blazor_Lab_Starter_Code.User, List<Book>>)borrowedBooksField.GetValue(null);
 
             Program.ReadBooks();
