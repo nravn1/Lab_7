@@ -1,4 +1,3 @@
-
 name: .NET Core CI
 
 on:
@@ -17,8 +16,8 @@ jobs:
                              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
 
     env:
-      Solution_Name: "Blazor Lab Stater Code.sln"                         # Replace with your solution name, i.e. MyWpfApp.sln.
-      Test_Project_Path: "Lab5MSTestProject/Lab5MSTestProject.csproj"               # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.        
+      Solution_Name: "Blazor Lab Stater Code.sln"  # Replace with your solution name, i.e., MyWpfApp.sln
+      Test_Project_Path: "Lab5MSTestProject/Lab5MSTestProject.csproj"  # Replace with the path to your test project, i.e., MyWpfApp.Tests\MyWpfApp.Tests.csproj        
 
     steps:
      - name: Checkout repository
@@ -30,11 +29,11 @@ jobs:
         dotnet-version: '8.0.x'
     
      - name: Restore NuGet packages
-       run: dotnet restore ${{ env.Solution_Name }}
+       run: dotnet restore "${{ env.Solution_Name }}"
     
      - name: Build solution
-       run: dotnet build ${{ env.Solution_Name }} --configuration Release --no-restore
+       run: dotnet build "${{ env.Solution_Name }}" --configuration Release --no-restore
     
      - name: Test and publish results
        run: |
-        dotnet test ${{ env.Test_Project_Path }} --no-restore --verbosity normal
+        dotnet test "${{ env.Test_Project_Path }}" --no-restore --verbosity normal
